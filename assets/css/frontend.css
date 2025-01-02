@@ -1,0 +1,20 @@
+.gf-virtual-tryon-result {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.gf-virtual-tryon-result img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gf-virtual-tryon-result h3 {
+    margin-bottom: 15px;
+    color: #333;
+}

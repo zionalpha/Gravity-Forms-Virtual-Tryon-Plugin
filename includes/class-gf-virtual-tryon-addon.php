@@ -210,4 +210,35 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
             wp_send_json_error($e->getMessage());
         }
     }
+
+    public function init() {
+        parent::init();
+        $this->api_token = $this->get_plugin_setting('api_token');
+        add_action('gform_after_submission', array($this, 'process_virtual_tryon'), 10, 2);
+        add_action('wp_ajax_gf_virtual_tryon_test', array($this, 'ajax_test_connection'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_styles'));
+        add_action('gform_after_submission', array($this, 'display_tryon_result'), 11, 2);
+    }
+    
+    public function enqueue_frontend_styles() {
+        wp_enqueue_style(
+            'gf-virtual-tryon-frontend',
+            GF_VIRTUAL_TRYON_URL . 'assets/css/frontend.css',
+            array(),
+            $this->_version
+        );
+    }
+    
+    public function display_tryon_result($entry, $form) {
+        $settings = $this->get_form_settings($form);
+        $result_field_id = $settings['result_field'];
+        $result_url = rgar($entry, $result_field_id);
+        
+        if (!empty($result_url)) {
+            echo '<div class="gf-virtual-tryon-result">';
+            echo '<h3>' . esc_html__('Your Virtual Try-on Result', 'virtual-tryon-gravityforms') . '</h3>';
+            echo '<img src="' . esc_url($result_url) . '" alt="Try-on Result">';
+            echo '</div>';
+        }
+    }
 }

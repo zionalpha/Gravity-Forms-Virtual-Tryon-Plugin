@@ -3,7 +3,7 @@
  * Plugin Name: Virtual Try-on for GravityForms
  * Description: Adds virtual try-on capabilities to GravityForms using Replicate API
  * Version: 1.0.0
- * Author: Your Name
+ * Author: Zion Oyemade
  * Text Domain: virtual-tryon-gravityforms
  */
 

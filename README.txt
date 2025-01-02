@@ -1,5 +1,5 @@
 === Virtual Try-on for GravityForms ===
-Contributors: yourname
+Contributors: Zion Oyemade
 Tags: gravityforms, virtual try-on, fashion, ecommerce
 Requires at least: 5.8
 Tested up to: 6.4
@@ -22,10 +22,9 @@ Features:
 
 == Installation ==
 
-1. Upload 'virtual-tryon-gravityforms' folder to the '/wp-content/plugins/' directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Configure the plugin settings in GravityForms settings page
-4. Add required fields to your form and map them in form settings
+1. Upload the plugin files to the `/wp-content/plugins/virtual-tryon-gravityforms` directory
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. Configure the plugin in the Gravity Forms settings
 
 == Frequently Asked Questions ==
 
@@ -40,3 +39,8 @@ Features:
 
 = 1.0.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+First version of the plugin
