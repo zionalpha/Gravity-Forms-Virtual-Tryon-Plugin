@@ -29,6 +29,7 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
         add_action('wp_ajax_gf_virtual_tryon_test', array($this, 'ajax_test_connection'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_styles'));
         add_action('gform_after_submission', array($this, 'display_tryon_result'), 11, 2);
+        add_action('gform_loaded', array($this, 'maybe_add_result_field'));
     }
 
     public function plugin_settings_fields() {
@@ -234,4 +235,68 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
             echo '</div>';
         }
     }
+
+    public function form_settings_fields($form) {
+        return array(
+            array(
+                'title' => esc_html__('Virtual Try-on Field Mapping', 'virtual-tryon-gravityforms'),
+                'fields' => array(
+                    array(
+                        'name' => 'face_image_field',
+                        'label' => esc_html__('Face Image Field', 'virtual-tryon-gravityforms'),
+                        'type' => 'select',
+                        'choices' => $this->get_file_fields($form)
+                    ),
+                    array(
+                        'name' => 'model_image_field',
+                        'label' => esc_html__('Model Image Field', 'virtual-tryon-gravityforms'),
+                        'type' => 'select',
+                        'choices' => $this->get_file_fields($form)
+                    )
+                )
+            )
+        );
+    }
+    
+    // Add this new method to create the result field
+    public function add_result_field($form) {
+        // Check if result field already exists
+        foreach ($form['fields'] as $field) {
+            if ($field->type === 'hidden' && $field->label === 'Virtual Try-on Result') {
+                return $form;
+            }
+        }
+    
+        // Create new hidden field
+        $result_field = GF_Fields::create(array(
+            'type' => 'hidden',
+            'label' => 'Virtual Try-on Result',
+            'id' => GFFormsModel::get_next_field_id($form['fields'])
+        ));
+    
+        $form['fields'][] = $result_field;
+        GFAPI::update_form($form);
+    
+        return $form;
+    }
+    
+
+    
+    // Add this method to handle result field creation
+    public function maybe_add_result_field() {
+        $forms = GFAPI::get_forms();
+        foreach ($forms as $form) {
+            $settings = $this->get_form_settings($form);
+            if ($this->is_virtual_tryon_enabled($settings)) {
+                $this->add_result_field($form);
+            }
+        }
+    }
+    
+    // Update the is_virtual_tryon_enabled method
+    private function is_virtual_tryon_enabled($settings) {
+        return !empty($settings['face_image_field']) && 
+               !empty($settings['model_image_field']);
+    }
+
 }
