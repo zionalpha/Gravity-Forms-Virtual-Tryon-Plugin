@@ -292,11 +292,4 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
             }
         }
     }
-    
-    // Update the is_virtual_tryon_enabled method
-    private function is_virtual_tryon_enabled($settings) {
-        return !empty($settings['face_image_field']) && 
-               !empty($settings['model_image_field']);
-    }
-
 }
