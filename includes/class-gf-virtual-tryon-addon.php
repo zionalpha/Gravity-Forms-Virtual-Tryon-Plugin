@@ -27,6 +27,8 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
         $this->api_token = $this->get_plugin_setting('api_token');
         add_action('gform_after_submission', array($this, 'process_virtual_tryon'), 10, 2);
         add_action('wp_ajax_gf_virtual_tryon_test', array($this, 'ajax_test_connection'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_styles'));
+        add_action('gform_after_submission', array($this, 'display_tryon_result'), 11, 2);
     }
 
     public function plugin_settings_fields() {
@@ -211,15 +213,6 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
         }
     }
 
-    public function init() {
-        parent::init();
-        $this->api_token = $this->get_plugin_setting('api_token');
-        add_action('gform_after_submission', array($this, 'process_virtual_tryon'), 10, 2);
-        add_action('wp_ajax_gf_virtual_tryon_test', array($this, 'ajax_test_connection'));
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_styles'));
-        add_action('gform_after_submission', array($this, 'display_tryon_result'), 11, 2);
-    }
-    
     public function enqueue_frontend_styles() {
         wp_enqueue_style(
             'gf-virtual-tryon-frontend',
