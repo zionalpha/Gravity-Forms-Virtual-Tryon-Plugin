@@ -66,12 +66,6 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
                         'label' => esc_html__('Model Image Field', 'virtual-tryon-gravityforms'),
                         'type' => 'select',
                         'choices' => $this->get_file_fields($form)
-                    ),
-                    array(
-                        'name' => 'result_field',
-                        'label' => esc_html__('Result Field', 'virtual-tryon-gravityforms'),
-                        'type' => 'select',
-                        'choices' => $this->get_file_fields($form)
                     )
                 )
             )
@@ -183,8 +177,7 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
 
     private function is_virtual_tryon_enabled($settings) {
         return !empty($settings['face_image_field']) && 
-               !empty($settings['model_image_field']) && 
-               !empty($settings['result_field']);
+               !empty($settings['model_image_field']);
     }
 
     public function ajax_test_connection() {
@@ -236,28 +229,6 @@ class GF_Virtual_Tryon_Addon extends GFAddOn {
         }
     }
 
-    public function form_settings_fields($form) {
-        return array(
-            array(
-                'title' => esc_html__('Virtual Try-on Field Mapping', 'virtual-tryon-gravityforms'),
-                'fields' => array(
-                    array(
-                        'name' => 'face_image_field',
-                        'label' => esc_html__('Face Image Field', 'virtual-tryon-gravityforms'),
-                        'type' => 'select',
-                        'choices' => $this->get_file_fields($form)
-                    ),
-                    array(
-                        'name' => 'model_image_field',
-                        'label' => esc_html__('Model Image Field', 'virtual-tryon-gravityforms'),
-                        'type' => 'select',
-                        'choices' => $this->get_file_fields($form)
-                    )
-                )
-            )
-        );
-    }
-    
     // Add this new method to create the result field
     public function add_result_field($form) {
         // Check if result field already exists
