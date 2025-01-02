@@ -1,0 +1,36 @@
+.gf-virtual-tryon-settings {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.gf-virtual-tryon-field-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.gf-virtual-tryon-preview {
+    max-width: 300px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.gf-virtual-tryon-loading {
+    position: relative;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.gf-virtual-tryon-error {
+    color: #dc3232;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #dc3232;
+    background: #fff;
+}

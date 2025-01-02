@@ -1,0 +1,36 @@
+# Copyright (C) 2024 Virtual Try-on for GravityForms
+msgid ""
+msgstr ""
+"Project-Id-Version: Virtual Try-on for GravityForms 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/virtual-tryon-gravityforms\n"
+"POT-Creation-Date: 2024-01-02 12:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/class-gf-virtual-tryon-addon.php:123
+msgid "Virtual Try-on Settings"
+msgstr ""
+
+#: includes/class-gf-virtual-tryon-addon.php:129
+msgid "API Token"
+msgstr ""
+
+#: includes/class-gf-virtual-tryon-addon.php:130
+msgid "Enter your Replicate API token"
+msgstr ""
+
+#: includes/class-gf-virtual-tryon-addon.php:145
+msgid "Face Image Field"
+msgstr ""
+
+#: includes/class-gf-virtual-tryon-addon.php:151
+msgid "Model Image Field"
+msgstr ""
+
+#: includes/class-gf-virtual-tryon-addon.php:157
+msgid "Result Field"
+msgstr ""

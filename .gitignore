@@ -1,0 +1,17 @@
+# WordPress specific
+wp-config.php
+wp-content/uploads/
+wp-content/plugins/
+wp-content/cache/
+
+# Dependency directories
+node_modules/
+
+# Logs
+*.log
+
+# IDE and OS specific files
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
